@@ -28,7 +28,6 @@ const Home = ()=>{
           console.error(e);
         }
       };
-      console.log(Trending);
 
       useEffect(()=>{
         !wallpaper&&callWallpaper();
@@ -45,7 +44,7 @@ const Home = ()=>{
             <HorizontalCards data={Trending} />
         </div>
         </>
-    ): <h1 className="text-white">Loading .... </h1>
+    ) : <h1 className="text-white">Loading .... </h1>
    
 }
 export default Home

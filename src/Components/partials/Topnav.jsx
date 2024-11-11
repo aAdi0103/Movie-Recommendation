@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import axios from "../../utils/axios";
 
 const Topnav = () => {
-  const [query, setquery] = useState("");
-  const [Searches, setSearches] = useState([]);
+  const [query, setquery] = useState(""); // to keep data of input 
+  const [Searches, setSearches] = useState([]); // to keep data of searches 
 
   const getSearches = async () => {
     try {
@@ -19,14 +19,15 @@ const Topnav = () => {
     if (query.trim() !== "") {
       getSearches();
     } else {
-      setSearches([]); // Clear searches if the query is empty
+      setSearches([]); 
     }
   }, [query]);
 
-  const defaultImageUrl = "https://cdn.vectorstock.com/i/500p/82/99/no-image-available-like-missing-picture-vector-43938299.jpg"; // Example default image URL
+
+  const defaultImageUrl = "https://cdn.vectorstock.com/i/500p/82/99/no-image-available-like-missing-picture-vector-43938299.jpg"; 
 
   return (
-    <div className="w-full h-[10  vh] relative flex justify-center items-center mt-[1px]">
+    <div className="w-full h-[10vh] relative flex justify-center items-center mt-[1px]">
       <i className="text-zinc-400 text-3xl ri-search-line"></i>
       <input
         className="w-[50%] text-zinc-200 mx-7 p-3 rounded-md text-xl bg-zinc-700 outline-none border-none bg-transparent"
@@ -36,12 +37,16 @@ const Topnav = () => {
         value={query}
       />
 
-      {query.length > 0 && (
+      {
+
+      query.length > 0 && (
         <i
           className="text-zinc-400 text-3xl ri-close-fill cursor-pointer"
           onClick={() => setquery("")}
         ></i>
-      )}
+      )
+      
+      }
 
       <div className="absolute w-[50%] max-h-[50vh] bg-zinc-200 top-[90%] overflow-auto">
         {Searches.map((s, i) => (
@@ -64,6 +69,7 @@ const Topnav = () => {
           </Link>
         ))}
       </div>
+
     </div>
   );
 };

@@ -8,9 +8,9 @@ const Header = ({ data }) => {
         background: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url(https://image.tmdb.org/t/p/original/${
           data.backdrop_path || data.profile_path
         })`,
-        backgroundPosition: "center center", // Ensures centering both horizontally and vertically
-        backgroundSize: "cover", // Ensures the image covers the container
-        backgroundRepeat: "no-repeat", // Prevents the image from repeating
+        backgroundPosition: "center center", 
+        backgroundSize: "cover", 
+        backgroundRepeat: "no-repeat", 
       }}
       className="w-full h-[60vh] mt-1 p-[5%] flex flex-col justify-end"
     >
