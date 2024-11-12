@@ -1,13 +1,13 @@
 import {Link} from 'react-router-dom'
-const Cards = ({ Trending, lastElementRef }) => {
-    // console.log(Trending)
+const MoviesCard = ({ Movies, lastElementRef,title }) => {
+  console.log(title);
     return (
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
-        {Trending.map((d, i) => (
-         <Link to={`/${d.media_type}/details/${d.id}`}>
+        {Movies.map((d, i) => (
+          <Link to={`/${d.media_type || title }/details/${d.id}`}>
           <div
             key={i}
-            ref={i === Trending.length - 1 ? lastElementRef : null} // Attach the ref to the last element
+            ref={i === Movies.length - 1 ? lastElementRef : null} // Attach the ref to the last element
             className="text-white bg-zinc-700 min-w-[16vw] h-[55vh] rounded-lg shadow-lg overflow-hidden"
           >
             <img
@@ -22,11 +22,12 @@ const Cards = ({ Trending, lastElementRef }) => {
               {d.overview.slice(0, 100)}
               <Link to="#" className="text-blue-400 ml-3">more ...</Link>
             </p>
-          </div></Link>
+          </div>
+          </Link>
         ))}
       </div>
     );
   };
   
-  export default Cards;
+  export default MoviesCard;
   

@@ -25,6 +25,7 @@ const HorizontalCards = ({ data }) => {
       </div>
       <div className="w-full flex overflow-x-auto space-x-4">
         {filteredData.map((d, i) => (
+         <Link to={`/${d.media_type||title}/details/${d.id}`}>
           <div key={i} className="text-white bg-zinc-700 min-w-[16vw] h-[55vh] rounded-lg shadow-lg overflow-hidden">
             <img
               className="h-[35vh] w-full object-cover mb-5"
@@ -38,7 +39,7 @@ const HorizontalCards = ({ data }) => {
               {d.overview.slice(0, 100)}
               <Link to="#" className="text-blue-400 ml-3">more ...</Link>
             </p>
-          </div>
+          </div></Link>
         ))}
       </div>
     </div>

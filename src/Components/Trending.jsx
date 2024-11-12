@@ -12,6 +12,7 @@ const Trending = () => {
   const [Loading, setLoading] = useState(false); // Track loading state
   const observer = useRef(null); // Ref for the observer
 
+  // bringing trending data
   const callTrending = async () => {
     try {
       setLoading(true);
@@ -24,10 +25,12 @@ const Trending = () => {
     }
   };
 
+
   // Effect to fetch data when category, duration, or page changes
   useEffect(() => {
     callTrending();
   }, [Categories, Duration, Page]); // Dependency on Categories, Duration, and Page
+
 
   const onCategoryChange = (e) => {
     setCategories(e.target.value);
@@ -40,6 +43,7 @@ const Trending = () => {
     setTrending([]); // Clear existing data on duration change
     setPage(1); // Reset page number when duration changes
   };
+
 
   // Function to observe when the user has scrolled near the bottom
   const lastElementRef = (node) => {
@@ -55,6 +59,7 @@ const Trending = () => {
 
   return (
     <div className="w-full h-screen p-2">
+
       <div className="p-6 w-full flex items-center gap-2">
         <Link to="/">
           <i className="text-zinc-400 text-2xl ri-arrow-left-line"></i>
@@ -63,31 +68,31 @@ const Trending = () => {
         <Topnav />
       </div>
 
-      <div className="w-full flex justify-end gap-4 items-center mb-10">
-        <h1 className="text-zinc-400">Sort: </h1>
-
+      <div className="w-full flex justify-end gap-4 items-center mb-10 mr-10">
+        <h1 className="text-zinc-300 font-bold text-xl">Filter : </h1> 
         <div className="relative w-[15vw]">
           <select
             name="categories"
             id="categories"
             value={Categories}
             onChange={onCategoryChange}
-            className="block w-full px-1 py-1 pr-8 text-base text-gray-900 bg-white border border-gray-300 rounded-lg shadow-sm appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-          >
+            className="block w-full px-3 py-1 pr-8 text-base text-gray-900 bg-zinc-300 border border-gray-300 rounded-lg shadow-sm appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          >           
             <option value="all">Categories</option>
             <option value="movie">Movies</option>
             <option value="tv">TV Shows</option>
           </select>
         </div>
 
-        <div className="relative w-[15vw]">
+        <div className="relative w-[15vw] mr-10">
           <select
-            name="duration"
-            id="duration"
+            name="Duration"
+            id="Duration"
             value={Duration}
             onChange={onDurationChange}
-            className="block w-full px-1 py-1 pr-8 text-base text-gray-900 bg-white border border-gray-300 rounded-lg shadow-sm appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="block w-full px-3 py-1 pr-8 text-base text-gray-900 bg-zinc-300 border border-gray-300 rounded-lg shadow-sm appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
           >
+            <option value="duration">Duration</option>
             <option value="day">Day</option>
             <option value="week">Week</option>
           </select>

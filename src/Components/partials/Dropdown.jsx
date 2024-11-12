@@ -8,7 +8,7 @@ const Dropdown = ({ onSelectChange }) => {
           name="format"
           id="format"
           onChange={(e) => onSelectChange(e.target.value)}
-          className="block w-full px-1 py-1 pr-8 text-base text-gray-900 bg-white border border-gray-300 rounded-lg shadow-sm appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          className="block w-full px-1 py-1 pr-8 text-base text-gray-900 bg-zinc-300 border border-gray-300 rounded-lg shadow-sm appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
         >
           <option value="all">All</option>
           <option value="movie">Movies</option>
