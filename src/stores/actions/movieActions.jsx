@@ -1,20 +1,28 @@
-export { removemovie } from "../reducers/movieSlice";
+export { removemovies } from "../reducers/movieSlice";
 import axios from "../../utils/axios";
-import { loadmovie } from "../reducers/movieSlice";
-export const asyncloadmovie = async (id) => (dispatch, getState) => {
+import { loadmovies } from "../reducers/movieSlice";
+export const asyncloadmovies = (id) => async (dispatch, getState) => {
 try {
-const detail = axios.get(`/movie/${id}`);
+const detail = await axios.get(`/movie/${id}`);
 
-const externalid = axios.get(`/movie/${id}/external_ids`);
+const externalid = await axios.get(`/movie/${id}/external_ids`);
 
-const recommendations = axios.get(`/movie/${id}/recommendations`);
+const recommendations = await axios.get(`/movie/${id}/recommendations`);
 
-const similar = axios.get(`/movie/${id}/similar`);
+const similar = await axios.get(`/movie/${id}/similar`);
 
-const videos = axios.get(`/movie/${id}/videos`);
+const videos = await axios.get(`/movie/${id}/videos`);
 
-const watchproviders = axios.get(`/movie/${id}/watch/providers`);
-
+const watchproviders = await axios.get(`/movie/${id}/watch/providers`);
+let theultimatedetails = {
+    detail: detail.data,
+    externalid: externalid.data,
+    recommendations: recommendations.data,
+    similar: similar.data,
+    videos: videos.data,
+    watchproviders: watchproviders.data,
+    };
+    console.log(theultimatedetails)
 } catch (error) {
 
 console.log("Error: ", error);
