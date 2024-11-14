@@ -36,8 +36,7 @@ const HorizontalCards = ({ data }) => {
               {d.name || d.title || d.original_name || d.original_title}
             </h1>
             <p className="text-zinc-300 ml-3 text-xs">
-              {d.overview.slice(0, 100)}
-              <Link to="#" className="text-blue-400 ml-3">more ...</Link>
+              {d.overview.slice(0, 60)}
             </p>
           </div></Link>
         ))}

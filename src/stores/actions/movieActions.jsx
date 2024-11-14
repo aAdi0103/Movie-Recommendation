@@ -11,18 +11,21 @@ const recommendations = await axios.get(`/movie/${id}/recommendations`);
 
 const similar = await axios.get(`/movie/${id}/similar`);
 
+const translations = await axios.get(`/movie/${id}/translations`);
+
 const videos = await axios.get(`/movie/${id}/videos`);
 
 const watchproviders = await axios.get(`/movie/${id}/watch/providers`);
 let theultimatedetails = {
     detail: detail.data,
     externalid: externalid.data,
-    recommendations: recommendations.data,
-    similar: similar.data,
-    videos: videos.data,
+    recommendations: recommendations.data.results,
+    translations:translations.data.translations.map((e)=>e.english_name),
+    similar: similar.data.results,
+    videos: videos.data.results.find((e) => e.type === "Trailer"),
     watchproviders: watchproviders.data,
     };
-    console.log(theultimatedetails)
+    dispatch(loadmovies(theultimatedetails));
 } catch (error) {
 
 console.log("Error: ", error);
