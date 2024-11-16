@@ -7,6 +7,6 @@ export default configureStore({
   reducer: {
     movie: movieReducers,
     tv: tvReducers,
-    people: peopleReducers,
+    person: peopleReducers,
   },
 });

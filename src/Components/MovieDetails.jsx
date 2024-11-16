@@ -1,12 +1,11 @@
-import { useLocation, useNavigate, useParams,Outlet } from "react-router-dom";
+import { useLocation, useNavigate, useParams, Outlet } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { asyncloadmovies, removemovies } from "../stores/actions/movieActions";
 
-
 const MovieDetails = () => {
-  const {pathname} = useLocation();
+  const { pathname } = useLocation();
   const navigate = useNavigate();
   const { info } = useSelector((state) => state.movie); // To bring data
   const { id } = useParams();
@@ -29,7 +28,7 @@ const MovieDetails = () => {
           backgroundPosition: "center center",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
-          height: "100vh",
+          height: "145vh",
           width: "100vw",
         }}
       >
@@ -65,8 +64,10 @@ const MovieDetails = () => {
 
         <div className="w-full flex mt-5 ml-7 gap-[4vw]">
           <img
-            className="w-[12vw] h-[35vh] object-cover bg-center"
-            src={`https://image.tmdb.org/t/p/original/${info.detail.poster_path || info.detail.backdrop_path}`}
+            className="w-[18vw] h-[55vh] object-cover bg-center"
+            src={`https://image.tmdb.org/t/p/original/${
+              info.detail.poster_path || info.detail.backdrop_path
+            }`}
             alt=""
           />
 
@@ -87,15 +88,20 @@ const MovieDetails = () => {
                   {(info.detail.vote_average * 10).toFixed()} <sup>%</sup>
                 </div>
               )}
-              <h1 className="text-zinc-200 text-sm">{info.detail.release_date}, </h1>
+              <h1 className="text-zinc-200 text-sm">
+                {info.detail.release_date},{" "}
+              </h1>
               <h1 className="text-zinc-200 text-sm">
                 {info.detail.genres && info.detail.genres.length > 0
-                  ? info.detail.genres.map((e) => e.name).join(", ") 
-                  : "No genres available"},
+                  ? info.detail.genres.map((e) => e.name).join(", ")
+                  : "No genres available"}
+                ,
               </h1>
               <h1 className="text-zinc-300">{info.detail.runtime} mins</h1>
             </div>
-            <h1 className="text-white mt-3 ml-3 italic font-bold">{info.detail.tagline}</h1>
+            <h1 className="text-white mt-3 ml-3 italic font-bold">
+              {info.detail.tagline}
+            </h1>
             <h2 className="ml-3 mt-3 font-bold text-zinc-200">Overview : </h2>
             <p className="text-zinc-200 mt-2 ml-3">{info.detail.overview}</p>
             <Link
@@ -109,24 +115,36 @@ const MovieDetails = () => {
         </div>
 
         {/* Displaying Recommended Movies */}
-        <div className="mt-10 mb-8">
-          <h2 className="text-2xl font-extrabold text-white ml-3">Recommended Movies</h2>
-          <div className="flex overflow-x-auto gap-5 mt-5">
+        <div className="mt-10 mb-16">
+          <h2 className="text-2xl font-extrabold text-white ml-3">
+            Recommendations and Similar movies
+          </h2>
+          <div className="flex overflow-x-auto gap-5 mt-5 pb-5">
             {info.recommendations && info.recommendations.length > 0 ? (
               info.recommendations.map((d, i) => (
-                <Link key={i} to={`/${d.media_type || "movie"}/details/${d.id}`}>
-                  <div className="text-white bg-zinc-700 min-w-[18vw] h-[55vh] rounded-lg shadow-lg overflow-hidden">
+                <Link
+                  key={i}
+                  to={`/${d.media_type || "movie"}/details/${d.id}`}
+                >
+                  <div className="text-white bg-zinc-700 min-w-[18vw] h-[55vh] rounded-lg shadow-lg overflow-hidden flex flex-col">
                     <img
-                      className="h-[32vh] w-full object-cover mb-5"
-                      src={`https://image.tmdb.org/t/p/original/${d.backdrop_path || d.poster_path}`}
+                      className="h-[65%] w-full object-cover mb-3"
+                      src={`https://image.tmdb.org/t/p/original/${
+                        d.backdrop_path || d.poster_path
+                      }`}
                       alt=""
                     />
-                    <h1 className="text-2xl font-extrabold text-white ml-3">
-                      {d.name || d.title || d.original_name || d.original_title}
-                    </h1>
-                    <p className="text-zinc-300 ml-3 text-xs">
-                      {d.overview.slice(0, 100)}
-                    </p>
+                    <div className="px-3 pb-3 overflow-hidden">
+                      <h1 className="text-lg font-bold text-white overflow-hidden whitespace-normal break-words">
+                        {d.name ||
+                          d.title ||
+                          d.original_name ||
+                          d.original_title}
+                      </h1>
+                      <p className="text-zinc-300 text-xs mt-1">
+                        {d.overview.slice(0, 100)}...
+                      </p>
+                    </div>
                   </div>
                 </Link>
               ))
@@ -136,7 +154,7 @@ const MovieDetails = () => {
           </div>
         </div>
       </div>
-      <Outlet/>
+      <Outlet />
     </>
   ) : (
     <h1 className="text-white">Loading ....</h1>

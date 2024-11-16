@@ -16,7 +16,6 @@ const Tvshows = () => {
     try {
       setLoading(true);
       const { data } = await axios.get(`/tv/${Categories}?page=${Page}`);
-      console.log('API Response:', data); // Log the full response to check its structure
       if (data && data.results) {
         setTvshows((prev) => [...prev, ...data.results]);
       } else {

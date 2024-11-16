@@ -5,19 +5,19 @@ import { createSlice } from '@reduxjs/toolkit'
   };
 
   export const peopleSlice = createSlice({
-    name: 'people',
+    name: 'person',
     initialState,
     reducers: {
-     loadpeoples:(state,action) =>{
+     loadperson:(state,action) =>{
         state.info = action.payload;
      },
-     removepeoples:(state,action) =>{
+     removeperson:(state,action) =>{
                state.info = null
      }
     }
   })
   
   // Action creators are generated for each case reducer function
-  export const { loadpeoples,removepeoples} = peopleSlice.actions
+  export const { loadperson,removeperson} = peopleSlice.actions
   
   export default peopleSlice.reducer

@@ -1,9 +1,9 @@
 import {Link} from 'react-router-dom'
-const PopularCards = ({ Popular, lastElementRef }) => {
-    // console.log(Popular)
+const PopularCards = ({ Popular, lastElementRef,title }) => {
     return (
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
         {Popular.map((d, i) => (
+          <Link to={`/${d.media_type || title }/details/${d.id}`}>
           <div
             key={i}
             ref={i === Popular.length - 1 ? lastElementRef : null} // Attach the ref to the last element
@@ -22,6 +22,7 @@ const PopularCards = ({ Popular, lastElementRef }) => {
               <Link to="#" className="text-blue-400 ml-3">more ...</Link>
             </p>
           </div>
+          </Link>
         ))}
       </div>
     );

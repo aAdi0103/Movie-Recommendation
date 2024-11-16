@@ -88,7 +88,7 @@ const Popular = () => {
         </div>
       </div>
 
-      <PopularCards Popular={Popular} lastElementRef={lastElementRef} />
+      <PopularCards Popular={Popular} lastElementRef={lastElementRef} title={Categories} />
       {Loading && <p className="text-center text-white">Loading...</p>}
     </div>
   );

@@ -16,7 +16,6 @@ const People = () => {
     try {
       setLoading(true);
       const { data } = await axios.get(`/person/${Categories}?page=${Page}`);
-      console.log('API Response:', data); // Log the full response to check its structure
       if (data && data.results) {
         setPeople((prev) => [...prev, ...data.results]);
       } else {
@@ -28,7 +27,6 @@ const People = () => {
       setLoading(false);
     }
   };
-  console.log(People)
   // Fetch People data whenever categories, duration, or page changes
   useEffect(() => {
     callPeople();

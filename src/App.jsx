@@ -25,9 +25,12 @@ function App() {
           <Route path="/movie/details/:id/trailer" element={<Trailer/>} />
           </Route> 
           <Route path="/tv" element={<Tvshows/>}/>
-          <Route path="/tv/details/:id" element={<TvDetails/>}/>  
+          <Route path="/tv/details/:id" element={<TvDetails/>}>
+          <Route path="/tv/details/:id/trailer" element={<Trailer/>} />
+
+          </Route>  
           <Route path="/peoples" element={<People/>}/> 
-          <Route path="/peoples/details/:id" element={<PeopleDetails/>}/>    
+          <Route path="/person/details/:id" element={<PeopleDetails/>}/>    
         </Routes>
       </div>
     </>
