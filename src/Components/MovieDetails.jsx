@@ -157,7 +157,9 @@ const MovieDetails = () => {
       <Outlet />
     </>
   ) : (
-    <h1 className="text-white">Loading ....</h1>
+    <div className="flex w-full h-screen items-center justify-center min-h-screen bg-gray-800">
+    <h1 className="text-white font-bold">Loading ....</h1>
+    </div>
   );
 };
 

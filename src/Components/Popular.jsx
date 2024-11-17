@@ -89,7 +89,9 @@ const Popular = () => {
       </div>
 
       <PopularCards Popular={Popular} lastElementRef={lastElementRef} title={Categories} />
-      {Loading && <p className="text-center text-white">Loading...</p>}
+      {Loading && <div className="flex w-full h-screen items-center justify-center min-h-screen bg-gray-800">
+    <h1 className="text-white font-bold">Loading ....</h1>
+    </div>}
     </div>
   );
 };
