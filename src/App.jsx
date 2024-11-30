@@ -7,8 +7,8 @@ import Movies from './Components/Movies'
 import Tvshows from './Components/Tvshows'
 import People from './Components/People'
 import MovieDetails from './Components/MovieDetails'
-import TvDetails from './Components/tvDetails'
-import PeopleDetails from './Components/peopleDetails'
+import TvDetails from './Components/TvDetails'
+import PeopleDetails from './Components/PeopleDetails'
 import Trailer from './Components/partials/Trailer'
 
 function App() {
