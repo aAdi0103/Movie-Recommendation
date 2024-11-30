@@ -19,14 +19,14 @@ const HorizontalCards = ({ data }) => {
 
   return (
     <div className="w-full h-[40vh] p-5">
-      <div className="mb-5 flex justify-between items-center bg-[#6556CD] p-3 rounded-lg">
-        <h1 className="text-2xl font-semibold text-zinc-200">Trending</h1>
+      <div className="mb-5 flex justify-between items-center bg-[#6556CD] p-3 max-md:p-2 rounded-lg max-md:gap-3">
+        <h1 className="text-2xl font-semibold text-zinc-200 max-md:text-[17px] max-md:font-normal">Trending</h1>
         <Dropdown onSelectChange={handleSelectChange} />
       </div>
       <div className="w-full flex overflow-x-auto space-x-4">
         {filteredData.map((d, i) => (
          <Link to={`/${d.media_type||title}/details/${d.id}`}>
-          <div key={i} className="text-white bg-zinc-700 min-w-[16vw] h-[55vh] rounded-lg shadow-lg overflow-hidden">
+          <div key={i} className="text-white bg-zinc-700 min-w-[16vw] max-md:w-[55vw] h-[55vh] rounded-lg shadow-lg overflow-hidden">
             <img
               className="h-[35vh] w-full object-cover mb-5"
               src={`https://image.tmdb.org/t/p/original/${d.backdrop_path || d.poster_path}`}

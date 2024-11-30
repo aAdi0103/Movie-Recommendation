@@ -60,9 +60,9 @@ const TvDetails = () => {
           </div>
         </nav>
 
-        <div className="w-full flex mt-5 ml-7 gap-[4vw]">
+        <div className="w-full flex mt-5 ml-7 gap-[4vw] max-md:ml-2">
           <img
-            className="w-[18vw] h-[55vh] object-cover bg-center"
+            className="w-[18vw] h-[55vh] object-cover bg-center max-md:w-[35vw] max-md:h-[30vh]"
             src={`https://image.tmdb.org/t/p/original/${
               info.detail.poster_path || info.detail.backdrop_path
             }`}
@@ -70,7 +70,7 @@ const TvDetails = () => {
           />
 
           <div>
-            <h1 className="text-5xl font-extrabold text-white ml-3">
+            <h1 className="text-5xl font-extrabold text-white ml-3 max-md:text-[15px]">
               {info.name ||
                 info.detail.title ||
                 info.detail.original_name ||
@@ -82,7 +82,7 @@ const TvDetails = () => {
 
             <div className="flex items-center gap-3">
               {info.detail.vote_average && (
-                <div className="rounded-full ml-3 text-sm font-semibold bg-yellow-600 text-white w-[7vh] h-[7vh] flex justify-center items-center mt-2">
+                <div className="rounded-full ml-3 text-sm font-semibold max-md:w-[6vw] max-md:h-[6vw] bg-yellow-600 text-white w-[7vh] h-[7vh] flex justify-center items-center mt-2 max-md:text-[8px]">
                   {(info.detail.vote_average * 10).toFixed()} <sup>%</sup>
                 </div>
               )}
@@ -103,7 +103,7 @@ const TvDetails = () => {
             <p className="text-zinc-200 mt-2 ml-3">{info.detail.overview}</p>
             <Link
               to={`${pathname}/trailer`}
-              className="p-3 bg-[#6556CD] w-[13vw] text-white mt-4 ml-3 flex items-center justify-center rounded-md gap-1"
+              className="p-3 bg-[#6556CD] w-[13vw] text-white mt-4 ml-3 flex items-center justify-center rounded-md gap-1 max-md:w-[45vw]"
             >
               <i className="text-xl ri-play-line"></i>
               Watch Trailer
@@ -118,7 +118,7 @@ const TvDetails = () => {
       info.detail.seasons.map((s, index) => (
         <div
           key={index}
-          className="text-white bg-zinc-700 min-w-[18vw] rounded-lg shadow-lg overflow-hidden mx-3 flex flex-col"
+          className="text-white bg-zinc-700 min-w-[18vw] max-md:min-w-[60vw] rounded-lg shadow-lg overflow-hidden mx-3 flex flex-col"
         >
           <div className="flex justify-center items-center w-full h-[30vh]">
             <img
@@ -153,7 +153,7 @@ const TvDetails = () => {
                   key={i}
                   to={`/${d.media_type || "movie"}/details/${d.id}`}
                 >
-                  <div className="text-white bg-zinc-700 min-w-[18vw] h-[55vh] rounded-lg shadow-lg overflow-hidden flex flex-col">
+                  <div className="text-white bg-zinc-700 min-w-[18vw] max-md:min-w-[50vw] h-[55vh] rounded-lg shadow-lg overflow-hidden flex flex-col">
                     <img
                       className="h-[65%] w-full object-cover mb-3"
                       src={`https://image.tmdb.org/t/p/original/${

@@ -27,10 +27,10 @@ const Topnav = () => {
   const defaultImageUrl = "https://cdn.vectorstock.com/i/500p/82/99/no-image-available-like-missing-picture-vector-43938299.jpg"; 
 
   return (
-    <div className="w-full h-[10vh] relative flex justify-center items-center mt-[1px]">
+    <div className="w-full h-[10vh] max-md:h-[8vh] relative flex justify-center items-center mt-[5px]">
       <i className="text-zinc-400 text-3xl ri-search-line"></i>
       <input
-        className="w-[50%] text-zinc-200 mx-7 p-3 rounded-md text-xl bg-zinc-700 outline-none border-none bg-transparent"
+        className="w-[50%] max-md:w-[80%] text-zinc-200 mx-7 max-md:mx-2 p-3 rounded-md text-xl bg-zinc-700 outline-none border-none bg-transparent"
         type="text"
         onChange={(e) => setquery(e.target.value)}
         placeholder="search anything"

@@ -28,7 +28,7 @@ const Header = ({ data }) => {
           {data.media_type}
         </span>
       </p>
-      <Link to={`/${data.media_type}/details/${data.id}/trailer`} className="p-3 bg-[#6556CD] w-[10vw] text-white mt-2 flex items-center justify-center rounded-md">
+      <Link to={`/${data.media_type}/details/${data.id}/trailer`} className="p-3 bg-[#6556CD] w-[10vw] text-white mt-2 flex items-center justify-center rounded-md max-md:w-[60%]">
         Watch Trailer
       </Link>
     </div>

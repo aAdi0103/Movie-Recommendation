@@ -1,5 +1,5 @@
-import Sidenav from "./partials/sidenav"
-import Topnav from "./partials/Topnav"
+import Sidenav from "./partials/Sidenav"
+  import Topnav from "./partials/Topnav"
 import Header from "./partials/Header"
 import { useEffect, useState } from "react"
 import axios from "../utils/axios";

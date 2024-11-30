@@ -64,7 +64,7 @@ const MovieDetails = () => {
 
         <div className="w-full flex mt-5 ml-7 gap-[4vw]">
           <img
-            className="w-[18vw] h-[55vh] object-cover bg-center"
+            className="w-[18vw] h-[55vh] object-cover bg-center max-md:w-[25vw] max-md:h-[65vw]"
             src={`https://image.tmdb.org/t/p/original/${
               info.detail.poster_path || info.detail.backdrop_path
             }`}
@@ -72,19 +72,19 @@ const MovieDetails = () => {
           />
 
           <div>
-            <h1 className="text-5xl font-extrabold text-white ml-3">
+            <h1 className="text-5xl font-extrabold text-white ml-3 max-md:text-[20px]">
               {info.name ||
                 info.detail.title ||
                 info.detail.original_name ||
                 info.detail.original_title}
-              <small className="text-xl font-semibold ml-2">
+              <small className="text-xl font-semibold ml-2 max-md:text-[15px]">
                 ({info.detail.release_date.split("-")[0]})
               </small>
             </h1>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 max-md:hidden">
               {info.detail.vote_average && (
-                <div className="rounded-full ml-3 text-sm font-semibold bg-yellow-600 text-white w-[7vh] h-[7vh] flex justify-center items-center mt-2">
+                <div className="rounded-full ml-3 text-sm font-semibold bg-yellow-600 text-white w-[7vh] h-[7vh] flex justify-center items-center mt-2 max-md:w-[8vw] max-md:h-[8vw] max-md:text-[10px]">
                   {(info.detail.vote_average * 10).toFixed()} <sup>%</sup>
                 </div>
               )}
@@ -103,10 +103,10 @@ const MovieDetails = () => {
               {info.detail.tagline}
             </h1>
             <h2 className="ml-3 mt-3 font-bold text-zinc-200">Overview : </h2>
-            <p className="text-zinc-200 mt-2 ml-3">{info.detail.overview}</p>
+            <p className="text-zinc-200 mt-2 ml-3 max-md:text-[12px]">{info.detail.overview}</p>
             <Link
               to={`${pathname}/trailer`}
-              className="p-3 bg-[#6556CD] w-[13vw] text-white mt-4 ml-3 flex items-center justify-center rounded-md gap-1"
+              className="p-3 bg-[#6556CD] w-[13vw] text-white mt-4 ml-3 flex items-center justify-center rounded-md gap-1 max-md:w-[40vw]"
             >
               <i className="text-xl ri-play-line"></i>
               Watch Trailer
@@ -126,7 +126,7 @@ const MovieDetails = () => {
                   key={i}
                   to={`/${d.media_type || "movie"}/details/${d.id}`}
                 >
-                  <div className="text-white bg-zinc-700 min-w-[18vw] h-[55vh] rounded-lg shadow-lg overflow-hidden flex flex-col">
+                  <div className="text-white bg-zinc-700 min-w-[18vw] max-md:min-w-[50vw] h-[55vh] rounded-lg shadow-lg overflow-hidden flex flex-col">
                     <img
                       className="h-[65%] w-full object-cover mb-3"
                       src={`https://image.tmdb.org/t/p/original/${
